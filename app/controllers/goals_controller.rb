@@ -19,6 +19,7 @@ class GoalsController < ApplicationController
 
   # POST /goals
   def create
+    logger.debug("-------------- goals controller create params = #{params[:goal][:title]}")
     @goal = current_user.goals.new(goal_params)
 
     if @goal.save

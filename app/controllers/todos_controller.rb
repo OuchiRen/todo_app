@@ -6,6 +6,7 @@ class TodosController < ApplicationController
   
   # GET /todos/new
   def new
+    logger.debug("--------------------- todo controller new")
     @todo = @goal.todos.new
   end
 
@@ -14,7 +15,7 @@ class TodosController < ApplicationController
   end
   
   def sort
-end
+  end
 
   # POST /todos
   def create
@@ -54,4 +55,9 @@ end
     def todo_params
       params.require(:todo).permit(:content, :goal_id, :position, :done)
     end
+    
+    def todo_params
+      params.require(:todo).permit(:content, :goal_id, :position, :done, tag_ids: [])
+    end
 end
+

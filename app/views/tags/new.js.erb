@@ -1,0 +1,13 @@
+// モーダルを閉じる処理
+<%= render 'remove_modal' %>
+
+// モーダルの書き換え
+console.log("----------- tags new.js.erb before");
+$("#modalArea").html("<%= j(render 'form', tag: @tag) %>")
+console.log("----------- tags new.js.erb after");
+
+// フォームにフォーカス
+<%= render 'focus_modal' %>
+
+// モーダル表示
+<%= render 'show_modal' %>
